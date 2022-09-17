@@ -1,0 +1,143 @@
+:root {
+    --background1: #35ffbf;
+    --border: #007e67fe;
+}
+
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../Raleway-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: Montserrat;
+    background-color: var(--background1);
+}
+
+.GridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.2fr;
+    grid-template-areas: 
+    'GLeft GHeader GRight'
+    'GLeft GContent GRight'
+    'GLeft GFooter GRight';
+}
+
+.GridHeader {
+    grid-area: GHeader;
+    margin: auto;
+    padding: 20px;
+    display: block;
+    border-style: solid;
+    border-color: var(--border);
+}
+
+.GridContent {
+    grid-area: GContent;
+    margin: auto;
+    padding: 60px;
+    padding-top: 10px;
+    text-align: center;
+    border-style: solid;
+    border-color: var(--border);
+}
+
+.GridLeft {
+    grid-area: GLeft;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.GridRight {
+    grid-area: GRight;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+
+footer {
+    grid-area: GFooter;
+}
+
+@media only screen and (max-width: 650px){
+    .GridContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 0.2fr;
+        grid-template-areas: 
+        'GHeader'
+        'GContent'
+        'GRight'
+        'GLeft'
+        'GFooter';
+    }
+}
+
+.Header h1 {
+   text-transform: uppercase;
+   background-image: linear-gradient(to right, #fe009f, #00fede, #f500f5);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+
+   background-size: 300%;
+   background-position: -100%;
+   
+   animation: animatedText 2s infinite alternate-reverse;
+}
+
+@keyframes animatedText {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+.Header img {
+    float: left;
+    width: 55px;
+    height: 55px;
+}
+
+.Header h1, .Nav, footer {
+    text-align: center;
+    font-family: Raleway;
+}
+
+h4, h2, iframe, .StudioInfo {
+    text-align: center;
+}
+
+.results {
+    display: inline-block;
+    text-align: center;
+}
+
+input, textarea, select, option {
+    background-color: rgb(255, 233, 219);
+}
+
+a:hover {
+    color: white;
+}
+
+span {
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateY(50px);
+    display: inline-block;
+}
+
+span.fade {
+    opacity: 1;
+    transform: translateY(0px);
+}

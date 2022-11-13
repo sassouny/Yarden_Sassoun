@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results - Find Kangoo Jumps Near You</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="Header">
+      <img src="/static/svg/logo.svg" alt="Logo" />
+      <h1>Find Kangoo Jumps Classes Near You</h1>
+    </div>
+
+    <div class="Nav">
+      <a href="/">Home</a>
+      <a href="/contact">Contact Me</a>
+    </div>
+
+    <div class="GridContainer">
+      <div class="GridHeader">
+        <img
+          src="/static/images/Page2Photo2.jpg"
+          alt="Kangoo Photo 1"
+          width="900"
+          height="400"
+        />
+      </div>
+
+      <div class="GridContent">
+        <h2>Here are the closest studio near you:</h2>
+        <div class="results">
+          <h4><%= studio.center_name %></h4>
+          <h4>
+            <%- studio.street %> <%= studio.building_number %>, <%= studio.city
+            %>
+          </h4>
+          <h4>
+            Distance from you: <%=
+            parseInt(studio.distance).toLocaleString(undefined, {
+            minimumFractionDigits: 0 } ); %> meters
+          </h4>
+          <h4><%= studio.phone %></h4>
+          <h4>Days: <%= studio.workout_days %></h4>
+          <h4>Hours: <%= studio.workout_hours %></h4>
+          <iframe
+            src="https://maps.google.com/maps?q=<%= studio.latitude %>,<%= studio.longitude %>&hl=es&z=14&amp;output=embed"
+            width="400"
+            height="200"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <br />
+          <a href="/centers/<%= studio.id %>">
+            <input type="button" name="moreinfo" id="moreinfo" value="More Info"/>
+          </a>
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <footer>Yarden Sassoun WEB Course 2022</footer>
+  </body>
+</html>
